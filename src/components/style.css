@@ -1,0 +1,46 @@
+.common {
+  text-align: center;
+}
+.tarif {
+  background-color: rgb(20, 166, 185);
+}
+.tarif-2 {
+  background-color: rgb(49, 136, 110);
+}
+.tarif-3 {
+  background-color: rgba(185, 71, 56, 0.87);
+}
+.tarif-4 {
+  background-color: rgb(42, 45, 51);
+}
+.card-body {
+  background-color: rgb(23, 181, 202);
+}
+.card-body-2 {
+  background-color: rgb(58, 160, 129);
+}
+.card-body-3 {
+  background-color: rgba(218, 82, 65, 0.87);
+}
+.card-body-4 {
+  background-color: rgb(57, 62, 70);
+}
+.payment {
+  color: white;
+}
+.tarif-name {
+  color: white;
+}
+.volume {
+  background-color: rgb(192, 190, 190);
+}
+.card-special {
+  transform: scale(1);
+  box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.2);
+  transition: box-shadow 0.5s, transform 0.5s;
+}
+.card-special:hover {
+  transform: scale(1.2);
+  box-shadow: 0 5px 15px 7px rgba(34, 60, 80, 0.2);
+  transition: 0.5s;
+}
