@@ -1,46 +1,89 @@
-.common {
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  background-color: #cbc8c8;
+  font-weight: bold;
+}
+
+.card_special {
+  transform: scale(1.05);
+  box-shadow: rgb(252, 252, 251) 0px 0px 30px;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  color: white;
+  gap: 5px;
+}
+
+.card__header-blue {
+  background-color: #0f7885;
+}
+
+.card__header-green {
+  background-color: #04795f;
+}
+
+.card__header-red {
+  background-color: #a9433c;
+}
+
+.card__header-black {
+  background-color: black;
+}
+
+.card__body {
+  display: flex;
+  justify-content: center;
+  padding: 30px 10px;
+  margin-top: 2px;
+}
+
+.card__body-blue {
+  background-color: #40a6b3;
+}
+
+.card__body-green {
+  background-color: #39a188;
+}
+
+.card__body-red {
+  background-color: #d5635a;
+}
+
+.card__body-black {
+  background-color: #454545;
+}
+
+.card__currency {
+  font-size: 11px;
+  align-self: flex-start;
+}
+
+.card__price {
+  font-size: 40px;
+}
+
+.card__period {
+  font-size: 11px;
+  align-self: flex-end;
+}
+
+.card__description {
   text-align: center;
+  color: #7b8186;
 }
-.tarif {
-  background-color: rgb(20, 166, 185);
-}
-.tarif-2 {
-  background-color: rgb(49, 136, 110);
-}
-.tarif-3 {
-  background-color: rgba(185, 71, 56, 0.87);
-}
-.tarif-4 {
-  background-color: rgb(42, 45, 51);
-}
-.card-body {
-  background-color: rgb(23, 181, 202);
-}
-.card-body-2 {
-  background-color: rgb(58, 160, 129);
-}
-.card-body-3 {
-  background-color: rgba(218, 82, 65, 0.87);
-}
-.card-body-4 {
-  background-color: rgb(57, 62, 70);
-}
-.payment {
-  color: white;
-}
-.tarif-name {
-  color: white;
-}
-.volume {
-  background-color: rgb(192, 190, 190);
-}
-.card-special {
-  transform: scale(1);
-  box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.2);
-  transition: box-shadow 0.5s, transform 0.5s;
-}
-.card-special:hover {
-  transform: scale(1.2);
-  box-shadow: 0 5px 15px 7px rgba(34, 60, 80, 0.2);
-  transition: 0.5s;
+
+.card__footer {
+  padding: 10px;
+
+  background-color: #eeeeee;
+
+  text-align: center;
+  line-height: 170%;
+  color: #7b8186;
 }

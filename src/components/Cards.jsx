@@ -1,83 +1,52 @@
-import './style.css';
+import styles from '.cards module.css';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
+import { useEffect, useState } from 'react';
 
 function Cards() {
+  const [cards, setCards] = useState([]);
+  const [cardsIndex, setCardsIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchCards = async () => {
+      const items = [
+        { id: 1, color: 'blue', tariff: 300, speed: 10 },
+        { id: 2, color: 'green', tariff: 450, speed: 50 },
+        { id: 3, color: 'red', tariff: 550, speed: 100 },
+        { id: 4, color: 'black', tariff: 1000, speed: 200 },
+      ];
+
+      setCards(items);
+    };
+    fetchCards();
+  });
+
+  const handleNext = () => {
+    setCardsIndex((cardsIndex + 1) % cards.length);
+  };
+
+  const handlePrevious = () => {
+    setCardsIndex((cardsIndex - 1 + cards.length) % cards.length);
+  };
+
+  if (cards.length === 0) return <div>Loading...</div>;
+
+  const currentCard = cards[cardsIndex];
+
   return (
-    <CardGroup className="common">
-      <Card>
-        <Card.Header className="tarif">
-          <p className="tarif-name">Безлимитный 300</p>
-        </Card.Header>
-        <Card.Body className="card-body">
-          <Card.Title>
-            <h1 className="payment">руб 300/мес</h1>
-          </Card.Title>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">до 10 Мбит/сек</small>
-        </Card.Footer>
-        <Card.Footer className="volume">
-          <small className="text-muted">
-            Объем включенного трафика не ограничен
-          </small>
-        </Card.Footer>
-      </Card>
-      <Card className="card">
-        <Card.Header className="tarif-2">
-          <p className="tarif-name">Безлимитный 450</p>
-        </Card.Header>
-        <Card.Body className="card-body-2">
-          <Card.Title>
-            <h1 className="payment">руб 450/мес</h1>
-          </Card.Title>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">до 50 Мбит/сек</small>
-        </Card.Footer>
-        <Card.Footer className="volume">
-          <small className="text-muted">
-            Объем включенного трафика не ограничен
-          </small>
-        </Card.Footer>
-      </Card>
-      <Card className="card-special">
-        <Card.Header className="tarif-3">
-          <p className="tarif-name">Безлимитный 550</p>
-        </Card.Header>
-        <Card.Body className="card-body-3">
-          <Card.Title>
-            <h1 className="payment">руб 550/мес</h1>
-          </Card.Title>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">до 100 Мбит/сек</small>
-        </Card.Footer>
-        <Card.Footer className="volume">
-          <small className="text-muted">
-            Объем включенного трафика не ограничен
-          </small>
-        </Card.Footer>
-      </Card>
-      <Card className="card">
-        <Card.Header className="tarif-4">
-          <p className="tarif-name">Безлимитный 1000</p>
-        </Card.Header>
-        <Card.Body className="card-body-4">
-          <Card.Title>
-            <h1 className="payment">руб 1000/мес</h1>
-          </Card.Title>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">до 200 Мбит/сек</small>
-        </Card.Footer>
-        <Card.Footer className="volume">
-          <small className="text-muted">
-            Объем включенного трафика не ограничен
-          </small>
-        </Card.Footer>
-      </Card>
-    </CardGroup>
+    <main>
+      <div className={styles.cardNext}>
+        <button onClick={handlePrevious}>Предыдущий</button>
+        <section className={styles.cardList} onClick={handleNext}>
+          <Card
+            key={currentCard.id}
+            color={currentCard.color}
+            tariff={currentCard.tariff}
+            speed={currentCard.speed}
+          />
+        </section>
+        <button onClick={handleNext}>Следующий</button>
+      </div>
+    </main>
   );
 }
 
